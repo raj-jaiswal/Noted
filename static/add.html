@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="theme-color" content="#fbfaf5">
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="https://kit.fontawesome.com/b575671b41.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">noted</div>
+      <div class="subtitle">Reimagine Imagination</div>
+      <div class="title-noted" style="margin-top:30px;">Edit Note :</div>
+      <div class="buttons" style="margin-top:10px;">
+        <button class="button green centered" onclick="saveData();">Save</button>
+        <button class="button red centered" onclick="window.location.href='main.html'">Discard</button>
+      </div>
+      <div>
+        <input class="note-title" type="text" placeholder="Give Your Note a Title...">
+        <textarea class="description" placeholder="Enter Something Here..."></textarea>
+      </div>
+      <div class="subtitle imageButton" style="margin-top:7px;">
+        or <a class="subtitle" onclick="showMenu()">Add an Image</a> instead
+      </div>
+      <div class="blur"></div>
+      <div id="pop-up-hidden" class="centered">
+        <img id="img" width="100%"/>
+        <input type="file" id="file" accept="image/*" onchange="getImage(this);"/>
+        <label for="file">Select An Image File</label>
+        <p></p>
+        <button onclick="addImage();">Add</button>
+        <i class="fa-solid fa-xmark" onclick="showMenu();"></i>
+      </div>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="add.js"></script>
+    <script src="main.js"></script>
+    <script>
+      setDelay(document.body.children[0],1);
+    </script>
+  </body>
+</html>

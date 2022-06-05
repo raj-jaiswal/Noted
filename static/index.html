@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="theme-color" content="#fbe7e6">
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script src="https://kit.fontawesome.com/b575671b41.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body class="centered login">
+    <div class="container login">
+      <div class="title">noted</div>
+      <div class="subtitle">Log In</div>
+      <div class="description">You must be Logged In to<br>Access your Notes.</div>
+      <form>
+        <div>
+          <label for="name">Name :</label>
+          <input type="text" name="name" placeholder="Enter a Username">
+        </div>
+        <div>
+          <label for="email" class='mail'>Email :</label>
+          <input type="email" name="email" class="mail" placeholder="Enter your Email Address">
+        </div>
+        <div style="position:relative;">
+          <label for="pass">Password :</label>
+          <input type="password" name="pass" placeholder="Enter a Password">
+          <i class="fa-regular fa-eye" onclick="togglePass(this)"></i>
+        </div>
+      </form>
+      <button onclick="login();"><span>Log In</span></button>
+      <div class="text">
+        Don't have an Account?
+      </div>
+        <a onclick="changeState();">Sign Up</a>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="anim.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

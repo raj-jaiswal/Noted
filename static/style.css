@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
+@font-face {
+  font-family: OpenSauce;
+  src: url(assets/OpenSauceSans-SemiBold.ttf);
+}
+:root{
+  --pink:#FFAEBC;
+  --light-pink:#FBE7E6;
+  --blue:#A0E7E5;
+  --light-blue:#D8F6F4;
+  --green:#B4F8C8;
+  --light:#FBFAF5;
+  --open-sans: 'Open Sans', sans-serif;
+}
+*{
+  border:none;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:var(--open-sans);
+  transform:translateY(5px);
+  transition:0.3s;
+}
+body *{
+  opacity:0;
+}
+.centered{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+body{
+  min-height:100vh;
+  text-align:left;
+  font-size:16px;
+}
+body.login{
+  background-color:var(--light-pink);
+}
+body.signup{
+  background-color:var(--light-blue);
+}
+.container{
+  width:320px;
+  height:390px;
+  border-radius:13px;
+  padding:35px;
+}
+.container.login{
+  background-color:var(--pink);
+}
+.container.signup{
+  background-color:var(--blue);
+}
+.title{
+  text-transform:uppercase;
+  font-size:2.3rem;
+  font-weight:800;
+  text-align:center;
+  color:#545454;
+  margin-bottom:10px;
+}
+.subtitle{
+  font-size:1.45rem;
+  font-family:OpenSauce;
+  color:#525252;
+}
+.description{
+  font-size:0.7rem;
+  font-weight:500;
+  font-weight:400;
+  line-height:12px;
+  color:#555555;
+  margin-bottom:15px;
+  word-spacing:0.5px;
+}
+label{
+  display:block;
+  color:#363636;
+  margin-top:10px;
+  font-size:0.95rem;
+}
+input{
+  border:none;
+  background-color:transparent;
+  border-bottom:1.2px solid #515151;
+  width:100%;
+  color:#525252;
+  font-size:0.8rem;
+}
+input:focus,input:active{
+  border:none;
+  background-color:transparent;
+  border-bottom:1.2px solid #515151;
+  outline:none;
+}
+i.fa-regular{
+  position:absolute;
+  right:10px;
+  bottom:5px;
+  color:#777;
+  font-size:0.8rem;
+}
+button{
+  display:block;
+  margin:20px auto 12px auto;
+  width:120px;
+  height:38px;
+  border-radius:19px;
+  font-size:1rem;
+  color:#424242;
+  box-shadow:0 3px 3px rgba(0,0,0,0.1);
+}
+button span{
+  display:block;
+  font-family:OpenSauce;
+}
+button.signup{
+  margin-top:60px;
+}
+.text{
+  font-size:10px;
+  word-spacing:1px;
+  text-align:center;
+  line-height:12px;
+}
+a{
+  word-spacing:1px;
+  text-align:center;
+  line-height:12px;
+  display:block;
+  font-size:0.63rem;
+  text-decoration:underline;
+  text-underline-offset:1px;
+  font-weight:600;
+  color:#555555;
+  width:60px;
+  margin:0px auto;
+}
+.mail{
+  display:none;
+}
+.mail.signup{
+  display:block;
+}
+.hidden{
+  transform:translateY(5px) !important;
+  opacity:0 !important;
+}
+.swal-text{
+  transform:translateY(0px) !important;
+  opacity:1 !important;
+  transition:0.3s; 
+}
+.swal-modal{
+  border-radius:13px;
+  background-color:#FBFAF5;
+}

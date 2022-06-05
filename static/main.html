@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="theme-color" content="#fbfaf5">
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="https://kit.fontawesome.com/b575671b41.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">noted</div>
+      <div class="subtitle">Reimagine Imagination</div>
+      <div class="buttons">
+        <button class="button green centered" onclick="window.location.href='add.html'">Add Note</button>
+        <button class="button red centered" onclick="logout()">Log Out</button>
+      </div>
+      <div class="title-noted">Your Notes :</div>
+      <div class="notes">
+      </div>
+      <div class="empty">
+        <i class="fa-solid fa-folder"></i><br>
+        <span class="subtitle">
+          It seems Empty in here<br>
+          Make Sure to Add a new Note.
+        </span>
+      </div>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="load.js" defer></script>
+    <script src="main.js" defer></script>
+  </body>
+</html>
