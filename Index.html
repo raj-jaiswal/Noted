@@ -1,0 +1,285 @@
+<!--
+FFBE0B yellow
+FB5607 orange
+FF006E red
+8338EC purple
+3A86FF blue
+-->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script>
+      let name=Cookies.get('username');
+      if(name==undefined){
+        location.assign('Login.html');
+      }
+    </script>
+    <script src="https://kit.fontawesome.com/b575671b41.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+      :root{
+        --shadow-color:rgba(0,0,0,0.2);
+      }
+      *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+      }
+      body{
+        background-color:#F0F0F3;
+        font-size: 16px;
+        color:black;
+        text-align:center;
+        font-family:sans-serif;
+      }
+      #container{
+        min-height:80vh;
+        width:80%;
+        margin:10vh auto 10vh auto;
+        padding:20px;
+        border-radius:15px;
+        box-shadow:-9px -9px 14px rgba(255,255,255,0.7),
+                    9px 9px 14px rgba(67,71,72,0.15);
+      }
+      H1{
+        font-size:2.3em;
+        Font-family:'Open Sans',sans-serif;
+        font-weight:400;
+        color:#494949;
+      }
+      #info{
+        text-align:left;
+        position:absolute;
+        height:30px;
+        right:0;
+        top:0;
+        padding:5px;
+        padding-left:10px;
+        padding-right:10px;
+        border-radius:5px;
+        box-shadow:-9px -9px 14px rgba(255,255,255,0.7),
+                    9px 9px 14px rgba(67,71,72,0.15);
+      }
+      #punchLine{
+        font-size:0.9em;
+      }
+      #container button{
+        width:125px;
+        padding:10px;
+        margin:5px;
+        margin-top:15px;
+        border-radius:7px;
+        border:0;
+        font-size:0.98em;
+        color:white;
+        background-color:#6aa3ff;
+        box-shadow:0px 5px 10px var(--shadow-color);
+      }
+      #container .red{
+        background-color:#ff549e;
+      }
+      #notes .note{
+        width:100%;
+        padding:7px 12px 7px 12px;
+        max-height:40px;
+        border-radius:7px;
+        font-size:0.98em;
+        text-align:left;
+        box-shadow:-5px -5px 10px rgba(255,255,255,0.7) inset,
+                    5px 5px 10px rgba(67,71,72,0.15) inset;
+        position:relative;
+        margin-bottom:12px;
+        background-color:#ffffff00;
+        border:0.5px solid #ffffff;
+        transition:0.5s;
+        overflow-y:hidden;
+      }
+      .note .title{
+        display:block;
+        width:80%;
+        height:100%;
+        overflow-y:hidden;
+        transition:0.5s;
+        border:0;
+        border-bottom:1px dashed rgba(0,0,0,0.3);
+        font-size:1em;
+        background-color:#ffffff00;
+        line-height:26px;
+        font-family:'Open Sans',Sans-Serif;
+        text-decoration-color:rgba(22,22,22,0.344);
+      }
+      .note textarea:active,.note textarea:focus{
+        outline:none;
+      }
+      .fa-pen{
+        position:absolute;
+        right:36px;
+        top:7px;
+        /*transform: translateY(-28px);*/
+        padding:6px;
+        color:white;
+        border-radius:4px;
+        background-color:#6aa3ff;
+      }
+      .fa-trash{
+        position:absolute;
+        right:6px;
+        top:7px;
+        padding:6px;
+        color:white;
+        border-radius:4px;
+        background-color:#ff549e;
+      }
+      .note .fa-trash:hover,#container .red:hover{
+        background-color:#FF006E;
+        cursor:pointer;
+      }
+      .note .fa-pen:hover,#container button:hover{
+        background-color:#3080ff;
+        cursor:pointer;
+      }
+      .text{
+        border:0;
+        font-family:'open sans',sans-serif;
+        font-size:0.85em;
+        background-color:transparent;
+        transition:0s 0.5s;
+        margin-top:2px;
+        height:30vh;
+        width:100%;
+        display:block;
+      }
+      #notes .note.clicked{
+        width:100%;
+        max-height:1000px;
+      }
+      .note.clicked .title{
+        height:auto;
+        overflow-y:visible;
+      }
+      #notes p{
+        margin-top:2vh;
+        font-size:0.95em;
+        color:#3b3b3b;
+      }
+      .imgDiv{
+        width:100%;
+        position:relative;
+        margin:0 auto 0 auto;
+      }
+      img{
+        width:100%;
+        object-fit:cover;
+        margin-bottom:12px;
+        border-radius:7px;
+      }
+      @media screen and (max-width: 992px) {
+        .text{
+          margin-top:7px;
+        }
+        .note .title{
+          border-bottom:1px dashed rgba(0,0,0,0.3);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="info">You're Logged in as <span></span> <i class="fas fa-times" onclick="document.querySelector('#info').style.display='none';"></i></div>
+    <div id="container">
+      <h1>Noted</h1>
+      <div id="punchLine">Reimagine Imagination</div>
+      <button onclick="location.assign('Add.html')"><i class="fas fa-plus"></i> Create New</button>
+      <button class="red" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Log Out</button>
+      <p style="text-align:left;margin:7px;margin-top:15px;font-size:1.15em">Your Notes-</p>
+      
+      <div id="notes">
+      </div>
+    </div>
+    <script>
+      document.querySelector('#info span').textContent=name;
+      fillUp();
+      checkup();
+      if(window.innerWidth>=768){
+        let titles=document.getElementsByClassName('title');
+        for(var j=0;j<titles.length;j++){
+          titles[j].setAttribute('rows','1');
+        }
+      }
+      function openNote(element){
+        element.offsetParent.classList.toggle('clicked');
+        element.previousSibling.previousSibling.toggleAttribute('readonly');
+        resave();
+      }
+      function del(element){
+        element.offsetParent.remove();
+        checkup();
+        resave();
+      }
+      function checkup(){
+        let remains=document.getElementsByClassName('note');
+        if(remains.length==0){
+          document.getElementById('notes').innerHTML='<p>You Have No Notes Yet<br>Add a New Note Now!</p>';
+        }
+      }
+      function logout(){
+        Cookies.remove('username');
+        location.assign('Login.html');
+      }
+      async function fillUp(){
+        let titles=Cookies.get('title');
+        let texts=Cookies.get('text');
+        let images=Cookies.get('image');
+        
+        if(titles!=undefined){
+          titles=JSON.parse(titles);
+          texts=JSON.parse(texts);
+          for(var i=0;i<titles.length;i++){
+            let div=document.createElement('div');
+            div.classList.add('note');
+            div.innerHTML=`<textarea placeholder="Enter Some Title..." readonly class="title"></textarea>
+          <i class="fas fa-pen" onclick="openNote(this);"></i>
+          <i class="fas fa-trash" onclick="del(this);"></i>
+          <textarea class="text" placeholder="Enter something..."></textarea>`;
+            document.querySelector('#notes').append(div);
+            let tElm=document.querySelectorAll('.title');
+            tElm[tElm.length-1].value=titles[i];
+            let bElm=document.querySelectorAll('.text');
+            bElm[bElm.length-1].value=texts[i];
+          }
+        }
+        /*if(images!=undefined){
+          images=JSON.parse(images);
+          for(var i=0;i<images.length;i++){
+            let div=document.createElement('div');
+            div.classList.add('imgDiv');
+            let img=document.createElement('img');
+            img.src=images[i];
+            div.append(img);
+            div.innerHTML+=`<i class="fas fa-trash" onclick="del(this);"></i>`;
+            document.querySelector('#notes').append(div);
+          }
+        }*/
+      }
+      function resave(){
+        let titles=document.querySelectorAll('.title');
+        let texts=document.querySelectorAll('.text');
+        let images=document.querySelectorAll('img');
+        let tarray=[];
+        let barray=[];
+        let iarray=[];
+        for(var i=0;i<titles.length;i++){
+          tarray.push(titles[i].value);
+          barray.push(texts[i].value);
+        }
+        for(var i=0;i<images.length;i++){
+          iarray.push(images[i].src);
+        }
+        Cookies.set('title',JSON.stringify(tarray),{expires: 50000});
+        Cookies.set('text',JSON.stringify(barray),{expires: 50000});
+        Cookies.set('image',JSON.stringify(iarray),{expires: 50000});
+      }
+    </script>
+  </body>
+</html>

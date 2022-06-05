@@ -1,0 +1,138 @@
+<!--
+FFBE0B yellow
+FB5607 orange
+FF006E red
+8338EC purple
+3A86FF blue
+-->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+      :root{
+        --shadow-color:rgba(0,0,0,0.13);
+      }
+      *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+      }
+      body{
+        background-color:#3A86FF;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:100vh;
+        font-size: 16px;
+        color:black;
+        text-align:center;
+        font-family:Sans-Serif;
+      }
+      .panel{
+        width:340px;
+        height:270px;
+        background-color:#FFFFFF;
+        border-radius:15px;
+        box-shadow:0px 10px 20px var(--shadow-color),
+                   0px -10px 20px var(--shadow-color),
+                   10px 0px 20px var(--shadow-color),
+                   -10px 0px 20px var(--shadow-color);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+      }
+      H1{
+        font-size:2.3em;
+        Font-family:'Open Sans',sans-serif;
+        font-weight:400;
+        color:#FF006E;
+      }
+      button{
+        display:block;
+        width:85px;
+        height:35px;
+        margin-right:auto;
+        margin-left:auto;
+        border-radius:18px;
+        border:2px solid #FF006E;
+        background-color:rgba(0,0,0,0);
+        margin-top:10px;
+        font-size:1em;
+        color:#FF006E;
+        transition:0.35s;
+      }
+      button:hover{
+        background-color:#FF006E;
+        color:white;
+      }
+      label{
+        display:block;
+        margin-top:15px;
+        font-size:1em;
+        font-weight:350;
+      }
+      input{
+        width:80%;
+        height:35px;
+        border-radius:18px;
+        border:2px solid #3A86FF;
+        padding-left:10px;
+        margin:5px;
+        transition:0.5s;
+        transform:translateY(5px);
+        overflow:hidden;
+      }
+      #password{
+        width:55%;
+        font-size:0.8em;
+      }
+      input:focus{
+        border-color:#8338EC;
+        box-shadow:0px 3px 10px rgba(0,0,0,0.25);
+        transform:translateY(0);
+      }
+      .panel div{
+        font-size:0.9em;
+      }
+      input:active,input:focus{
+        outline:none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <div class="panel">
+        <H1>Noted</H1>
+        <div>Reimagine Imagination</div>
+        <label>Enter your details to access your Notes.</label>
+        <input type="email" id="email" placeHolder="Email Id"/>
+        <input type="password" id="password" placeholder="Password"/>
+        <button onclick="submit()">Submit</button>
+      </div>
+    </div>
+    <script>
+      function submit(){
+        let user=document.querySelector('input').value;
+        if(user=='' || user.length<=2){
+          if(document.querySelector('.panel p')==null)
+          {
+            let err=document.createElement('p');
+            err.innerHTML='*Please enter a valid username';
+            err.style.color='red';
+            err.style.fontSize='0.85em';
+            err.style.margin='5px';
+            document.querySelector('.panel input').after(err);
+          }
+        }
+        else{
+          Cookies.set('username',user,{expires: 365});
+          location.assign('index.html');
+        }
+      }
+    </script>
+  </body>
+</html>

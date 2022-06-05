@@ -1,0 +1,239 @@
+<!--
+FFBE0B yellow
+FB5607 orange
+FF006E red
+8338EC purple
+3A86FF blue
+-->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script>
+      let name=Cookies.get('username');
+      if(name==undefined){
+        location.assign('Login.html');
+      }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+      :root{
+        --shadow-color:rgba(0,0,0,0.2);
+      }
+      *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        transition:0.5s;
+      }
+      body{
+        background-color:#F0F0F3;
+        font-size: 16px;
+        color:black;
+        text-align:Left;
+        font-family:sans-serif;
+      }
+      #container{
+        min-height:80vh;
+        width:80%;
+        margin:10vh auto 10vh auto;
+        padding:20px;
+        border-radius:15px;
+        box-shadow:-9px -9px 14px rgba(255,255,255,0.7),
+                    9px 9px 14px rgba(67,71,72,0.15);
+      }
+      H2{
+        font-size:1.2em;
+        Font-family:'Open Sans',sans-serif;
+        font-weight:400;
+        color:#494949;
+      }
+      .note{
+        width:100%;
+        padding:7px 12px 7px 12px;
+        border-radius:7px;
+        font-size:0.98em;
+        text-align:left;
+        box-shadow:-5px -5px 10px rgba(255,255,255,0.7) inset,
+                    5px 5px 10px rgba(67,71,72,0.15) inset;
+        position:relative;
+        margin-top:12px;
+        background-color:#ffffff00;
+        border:0.5px solid #ffffff;
+        transition:0.5s;
+        overflow-y:hidden;
+      }
+      .note .title{
+        display:block;
+        width:100%;
+        height:100%;
+        transition:0.5s;
+        border:0;
+        font-size:1em;
+        background-color:#ffffff00;
+        line-height:26px;
+        font-family:'Open Sans',Sans-Serif;
+        text-decoration-color:rgba(22,22,22,0.344);
+      }
+      .note textarea:active,.note textarea:focus{
+        outline:none;
+      }
+      .text{
+        border:0;
+        font-family:'open sans',sans-serif;
+        font-size:0.85em;
+        background-color:transparent;
+        transition:0s 0.5s;
+        margin-top:2px;
+        height:50vh;
+        width:100%;
+        display:block;
+      }
+      button{
+        width:125px;
+        padding:10px;
+        margin:5px;
+        margin-top:15px;
+        border-radius:7px;
+        border:0;
+        font-size:0.98em;
+        color:white;
+        cursor:pointer;
+        background-color:#6aa3ff;
+      }
+      #container .red{
+        background-color:#ff549e;
+      }
+      button#imgBut{
+        display:block;
+        width:160px;
+        border-radius:7px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom:7px;
+        background-color:#9e65ee;
+      }
+      #pop-up-hidden{
+        position:fixed;
+        top:50%;
+        left:50%;
+        transform:translateX(-50%) translateY(-50%) scale(0);
+        width:350px;
+        min-height:350px;
+        background-color:#9e65ee;
+        text-align:center;
+        display:flex;
+        justify-content:center;
+        flex-direction:column;
+        padding:10px;
+        transition:0.2s;
+        border-radius:10px;
+        color:white;
+      }
+      #pop-up-hidden.pop-up{
+        transform:translateX(-50%) translateY(-50%) scale(1);
+      }
+      #pop-up-hidden input{
+        display:none;
+      }
+      #pop-up-hidden label{
+        display:block;
+        margin:10px auto 10px auto;
+        border:2px dashed white;
+        width:200px;
+        padding:5px;
+        border-radius:7px;
+      }
+      #pop-up-hidden img{
+        border-radius:5px;
+        max-height:70vh;
+      }
+      button:hover{
+        cursor:pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <!--
+      <button id="imgBut" onclick="document.querySelector('#pop-up-hidden').classList.toggle('pop-up')">Add Image</button>
+      -->
+      <H2>
+        Add A New Note:
+      </H2>
+      <div class="note">
+        <textarea placeholder="Add a title..." class="title"></textarea>
+      </div>
+      <div class="note">
+        <textarea class="text" placeholder="Enter a Description..."></textarea>
+      </div>
+      <button class="red" onclick="location.assign('index.html');">Discard</button>
+      <button onclick="save()">Save</button>
+    </div>
+    <!--<div id="pop-up-hidden">
+      <img id="img" width="100%"/>
+      <input type="file" id="file" accept="image/*" onchange="getImage(this.files);"/>
+      <label for="file">Select An Image File</label>
+      <p></p>
+      <button style="margin:10px auto 5px auto;display:none;background-color:white;color:black;" onclick="addImage();">ADD</button>
+    </div>
+    -->
+    <script>
+      if(window.innerWidth>=768){
+        let titles=document.getElementsByClassName('title');
+        for(var j=0;j<titles.length;j++){
+          titles[j].setAttribute('rows','1');
+        }
+      }
+      function getImage(ev){
+        let image=ev[0];
+        document.querySelector('img').src=URL.createObjectURL(image);
+        document.querySelector('#pop-up-hidden p').textContent=image.name;
+        document.querySelector('#pop-up-hidden button').style.display='block';
+      }
+      function addImage(){
+        let images=Cookies.get('image');
+        if(images==undefined){
+          images=[];
+        }
+        else{
+          images=JSON.parse(images);
+        }
+        let img=document.querySelector('img');
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        var image=canvas.toDataURL('image/jpeg');
+        images.push(image);
+        Cookies.set('image',JSON.stringify(images),{expires: 50000});
+        location.assign('index.html');
+      }
+      function save(){
+        let titles=Cookies.get('title');
+        let texts=Cookies.get('text');
+        if(titles==undefined){
+          titles=[];
+          texts=[];
+        }else{
+          titles=JSON.parse(titles);
+          texts=JSON.parse(texts);
+        }
+        let title=document.querySelector('.title').value;
+        if(title==''){
+          alert('Please add a title');
+          return;
+        }
+        titles.push(title);
+        Cookies.set('title',JSON.stringify(titles),{expires: 50000});
+        
+        let text=document.querySelector('.text').value;
+        texts.push(text);
+        Cookies.set('text',JSON.stringify(texts),{expires: 50000});
+        location.assign('index.html');
+      }
+    </script>
+  </body>
+</html>
