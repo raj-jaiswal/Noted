@@ -2,7 +2,7 @@
 A notes project based on python webserver.
 
 ##### Visit Project At :
-<a href='https://github.com/raj-jaiswal/Noted/'> --- link goes here --- </a>
+<a href='https://noted-base.glitch.me/index.html'> https://noted-base.glitch.me/index.html </a>
 
 ##### Download APK file :
 <a href='https://github.com/raj-jaiswal/Noted/'> --- link goes here --- </a>
