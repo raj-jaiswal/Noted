@@ -1,10 +1,10 @@
 # Noted
 A notes project based on python webserver.
 
-#### Visit Project At :
+##### Visit Project At :
 <a href='https://github.com/raj-jaiswal/Noted/'> --- link goes here --- </a>
 
-#### Download APK file :
+##### Download APK file :
 <a href='https://github.com/raj-jaiswal/Noted/'> --- link goes here --- </a>
 
 ### About :
@@ -27,6 +27,10 @@ Web server used : <a href='https://glitch.com'>Glitch </a>
 * Cookies Management : <a href='https://github.com/js-cookie/js-cookie'>CookiesJS</a>
 * Icons : <a href='https://www.fontawesome.com'>FontAwesome</a>
 * Alert System : <a href='https://sweetalert.js.org/'>Sweet Alert</a>
+
+#### Running locally :
+Download all files and install python modules listed in requirements.txt .
+Now, Run websocket.py and go to http://localhost:5000/index.html in your web broswer.
 
 ### Contributors :
 * <a href='https://github.com/raj-jaiswal'>Raj Jaiswal (Divya Swaroop Jaiswal)</a>
