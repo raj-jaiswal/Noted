@@ -5,7 +5,7 @@ A notes project based on python webserver.
 <a href='https://noted-base.glitch.me/index.html'> https://noted-base.glitch.me/index.html </a>
 
 ##### Download APK file :
-<a href='https://github.com/raj-jaiswal/Noted/'> --- link goes here --- </a>
+<a href='https://www.mediafire.com/file/04suy23xobz9jd6/Noted.apk/file'> https://www.mediafire.com/file/04suy23xobz9jd6/Noted.apk/file </a>
 
 ### About :
 It is a simple Productivity based Web app designed to quickly add new Notes and Images.
