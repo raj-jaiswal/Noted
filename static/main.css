@@ -24,6 +24,12 @@
 .container,.container *{
   opacity:0;
 }
+.notes,.notes *{
+  opacity:0;
+}
+.empty,.empty *{
+  opacity:0;
+}
 .centered{
   display:flex;
   align-items:center;
@@ -40,6 +46,7 @@ body{
   width:100%;
   height:100%;
   padding:32px;
+  padding-bottom:0;
 }
 .title{
   text-transform:uppercase;
@@ -81,8 +88,11 @@ body{
   font-family:OpenSauce;
   margin-top:25px;
 }
-.notes{;
+.notes{
+  width:100%;
+  padding:32px;
   margin-top:10px;
+  padding-top:0;
 }
 .notes .input{
   position:relative;
@@ -238,11 +248,11 @@ input:focus,input:active,textarea:active,textarea:focus{
   width:100vw;
 }
 .empty{
-  position:absolute;
   display:none;
-  top:37vh;
-  left:0;
-  width:100vw;
+  margin-top:25px;
+  padding:32px;
+  padding-top:0;
+  width:100%;
   text-align:center;
   color:#808080;
   font-size:1.5rem;
@@ -250,7 +260,35 @@ input:focus,input:active,textarea:active,textarea:focus{
 }
 .empty i{
   font-size:4rem;
-  margin-bottom:20px;
+  margin-bottom:15px;
+}
+.load{
+  margin-top:25px;
+  padding:32px;
+  padding-top:0;
+  width:100%;
+  text-align:center;
+  color:#808080;
+  font-size:1.5rem;
+  line-height:15px;
+}
+.load span{
+  font-size:1rem;
+}
+.load img{
+  height:100px;
+  display:block;
+  margin:10px;
+  text-align:center;
+  animation:anim 1s linear infinite;
+}
+@keyframes anim{
+  0%{
+    transform:rotate(0deg);
+  }
+  100%{
+    transform:rotate(360deg);
+  }
 }
 .swal-modal *{
   transform:translateY(0px) !important;

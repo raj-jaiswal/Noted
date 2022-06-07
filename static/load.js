@@ -1,7 +1,7 @@
 if(Cookies.get('user')==undefined){
   location.assign('index.html');
 }
-const socket=io('http://localhost:5000');
+const socket=io();
 
 socket.on('getRequest',(data)=>{
   if(data=='noUserFound'){
@@ -36,10 +36,12 @@ socket.on('getRequest',(data)=>{
       notes.appendChild(imageNote);
     }
   }
+  document.querySelector('.load').style.display='none';
   checkForEmpty();
-  setDelay(document.body.children[0],1);
+  setDelay(document.body.children[1],1);
 });
 
+setDelay(document.body.children[0],1);
 socket.emit('getData',{'name': Cookies.get('user')});
 
 document.addEventListener("visibilitychange", event => {
@@ -56,8 +58,24 @@ document.addEventListener("visibilitychange", event => {
 function checkForEmpty(){
   if(document.querySelector('.notes').children.length==0){
     document.querySelector('.empty').style.display='block';
+    setDelay(document.body.children[2],1);
   }
   else{
     document.querySelector('.empty').style.display='none';
   }
+}
+
+async function setDelay(elm,k){
+  let j=k;
+  for(let i=0;i<elm.children.length;i++){
+    j++;
+    setDelay(elm.children[i],j);
+  }
+  await delay(125*k);
+  elm.style.opacity=1;
+  elm.style.transform='translateY(0px)';
+}
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
