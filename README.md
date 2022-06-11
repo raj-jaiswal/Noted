@@ -7,6 +7,9 @@ A notes project based on python webserver.
 ##### Download APK file :
 <a href='https://www.mediafire.com/file/04suy23xobz9jd6/Noted.apk/file'> https://www.mediafire.com/file/04suy23xobz9jd6/Noted.apk/file </a>
 
+
+https://raj-jaiswal.itch.io/noted
+
 ### About :
 It is a simple Productivity based Web app designed to quickly add new Notes and Images.
 It uses Python for web server and Sqlite for Database management.
