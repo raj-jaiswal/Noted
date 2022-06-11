@@ -33,7 +33,7 @@ Web server used : <a href='https://glitch.com'>Glitch </a>
 
 #### Running locally :
 Download all files and install python modules listed in requirements.txt .
-Now, Run websocket.py and go to http://localhost:5000/index.html in your web broswer.
+Now, Run websocket.py and go to http://localhost:3000/index.html in your web broswer.
 
 ### Contributors :
 * <a href='https://github.com/raj-jaiswal'>Raj Jaiswal (Divya Swaroop Jaiswal)</a>
